@@ -13,13 +13,35 @@ export default new Router({
       name: 'home',
       component: Home
     },
+    //排行
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      path: '/rank',
+      name: 'rank',
+      component: () => import('./views/Rank.vue')
+    },
+    //分类
+    {
+        path: '/category',
+        name: 'category',
+        component: () => import('./views/Category.vue')
+    },
+    //个人中心
+    {
+        path: '/personal',
+        name: 'personal',
+        component: () => import('./views/Personal.vue')
+    },
+    //登录
+    {
+        path: '/login',
+        name: 'login',
+        component: () => import('./views/Login.vue')
+    },
+    //注册
+    {
+        path: '/registe',
+        name: 'registe',
+        component: () => import('./views/Registe.vue')
     }
   ]
 })

@@ -15,7 +15,7 @@ class Tag extends Model
      */
     public function books()
     {
-        return $this->morphedByMany('App\Book', 'taggable');
+        return $this->morphedByMany('App\Models\Book', 'taggable');
     }
 
     /**
@@ -25,7 +25,7 @@ class Tag extends Model
      */
     public function booklists()
     {
-        return $this->morphedByMany('App\Booklist', 'taggable');
+        return $this->morphedByMany('App\Models\Booklist', 'taggable');
     }
 
 }

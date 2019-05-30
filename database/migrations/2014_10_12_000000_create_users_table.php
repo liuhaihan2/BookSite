@@ -25,21 +25,23 @@ class CreateUsersTable extends Migration
             $table->unsignedInteger('appreciations_count')->comment('读后感总数')->default(0);
             $table->unsignedBigInteger('followers_count')->default(0)->comment('关注总数')->default(0);
             $table->unsignedBigInteger('followering_count')->default(0)->comment('被关注总数')->default(0);
+            $table->char('confirmation_token', 40)->comment('邮箱token');
 
             //其实这个我也不太理解，但是我看都有啊
             $table->rememberToken()->comment('记住用户名');
             $table->timestamps();
 
             // 不理解的column
-            // $table->char('confirmation_token', 40)->comment('邮箱token');
             // $table->boolean('is_active')->default(0)->comment('激活状态');
 
             //待加入的column
             // $table->string('social_type')->nullable()->comment('第三方登录类型');
             // $table->unsignedBigInteger('social_id')->nullable()->comment('第三方账号ID');
+
+            $table->unique(['nickname', 'email', 'mobile']);
+
         });
 
-        $table->unique(['name', 'email', 'mobile']);
     }
 
     /**

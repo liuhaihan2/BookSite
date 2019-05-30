@@ -13,7 +13,7 @@ class Book extends Model
      */
     public function image()
     {
-        return $this->morphOne('App\Image', 'imageable');
+        return $this->morphOne('App\Models\Image', 'imageable');
     }
 
     /**
@@ -43,7 +43,7 @@ class Book extends Model
      */
     public function tags()
     {
-        return $this->morphToMany('App\Tag', 'taggable')->withTimestamps();
+        return $this->morphToMany('App\Models\Tag', 'taggable')->withTimestamps();
     }
 
     /**
@@ -63,6 +63,6 @@ class Book extends Model
      */
     public function lists()
     {
-        return $this->belongsToMany('App\List');
+        return $this->belongsToMany('App\Models\List');
     }
 }

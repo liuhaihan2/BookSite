@@ -1,6 +1,6 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
@@ -54,7 +54,7 @@ class User extends Authenticatable
      */
     public function avatar()
     {
-        return $this->morphOne('App\Image', 'imageable');
+        return $this->morphOne('App\Models\Image', 'imageable');
     }
 
     /**
@@ -64,7 +64,7 @@ class User extends Authenticatable
      */
     public function payments()
     {
-        return $this->hasMany('App\Payment');
+        return $this->hasMany('App\Models\Payment');
     }
 
     /**
@@ -74,7 +74,7 @@ class User extends Authenticatable
      */
     public function appreciations()
     {
-        return $this->hasMany('App\Appreciation');
+        return $this->hasMany('App\Models\Appreciation');
     }
 
     /**

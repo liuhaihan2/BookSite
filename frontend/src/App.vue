@@ -1,13 +1,25 @@
 <template>
   <div id="app">
     <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <Nav />
+      <!-- <Footer/> -->
     </div>
     <router-view/>
   </div>
 </template>
+<script>
+// @ is an alias to /src
+import Nav from '@/components/Nav.vue'
+// import Footer from '@/components/Nav.vue'
 
+export default {
+  name: 'home',
+  components: {
+    Nav,
+    // Footer
+  }
+}
+</script>
 <style lang="less">
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

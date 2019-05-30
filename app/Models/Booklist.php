@@ -13,7 +13,7 @@ class Booklist extends Model
      */
     public function themeImage()
     {
-        return $this->morphOne('App\Image', 'imageable');
+        return $this->morphOne('App\Models\Image', 'imageable');
     }
 
     /**
@@ -33,7 +33,7 @@ class Booklist extends Model
      */
     public function tags()
     {
-        return $this->morphToMany('App\Tag', 'taggable')->withTimestamps();
+        return $this->morphToMany('App\Models\Tag', 'taggable')->withTimestamps();
     }
 
     /**
@@ -43,6 +43,6 @@ class Booklist extends Model
      */
     public function books()
     {
-        return $this->belongsToMany('App\Book', 'books_booklists_table', 'book_id', 'booklist_id');
+        return $this->belongsToMany('App\Models\Book', 'books_booklists_table', 'book_id', 'booklist_id');
     }
 }

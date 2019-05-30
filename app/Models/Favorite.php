@@ -16,7 +16,7 @@ class Favorite extends Model
      */
     public function books()
     {
-        return $this->morphedByMany('App\Book', 'favoriteable');
+        return $this->morphedByMany('App\Models\Book', 'favoriteable');
     }
 
     /**
@@ -26,7 +26,7 @@ class Favorite extends Model
      */
     public function appreciations()
     {
-        return $this->morphedByMany('App\Appreciation', 'favoriteable');
+        return $this->morphedByMany('App\Models\Appreciation', 'favoriteable');
     }
 
     /**
@@ -36,6 +36,6 @@ class Favorite extends Model
      */
     public function booklists()
     {
-        return $this->morphedByMany('App\Booklist', 'favoriteable');
+        return $this->morphedByMany('App\Models\Booklist', 'favoriteable');
     }
 }

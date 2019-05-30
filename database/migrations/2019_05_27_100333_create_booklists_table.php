@@ -33,7 +33,7 @@ class CreateBooklistsTable extends Migration
             $table->increments('id')->comment('自增ID');
             $table->string('title')->comment('书单标题');
             $table->string('recommendation', 200)->comment('推荐语');
-            $table->string('tag')->comment('标签');
+            // $table->string('tag')->comment('标签');
             $table->unsignedInteger('iamge_id')->comment('配图');//image_id
             $table->unsignedInteger('favorites_count')->comment('收藏总数')->default(0);
             $table->timestamps();

@@ -21,7 +21,6 @@ class CreateBooksTable extends Migration
             $table->unsignedInteger('comments_count')->comment('评论总数')->default(0);
             $table->unsignedInteger('favorites_count')->comment('收藏总数')->default(0);
             $table->unsignedInteger('appreciations_count')->comment('鉴赏总数')->default(0);
-            // $table->string('tag')->comment('分类标签');
             $table->text('body')->comment('书籍内容');
             $table->string('summary')->comment('摘要');
             $table->string('book_introduction', 200)->comment('书籍简介');
