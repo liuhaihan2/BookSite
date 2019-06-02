@@ -1,8 +1,14 @@
 module.exports = {
     // proxy API requests to Valet during development
     devServer: {
-      proxy: 'http://localhost:4000'
+    //   proxy: {
+    //     target: 'http://localhost:8000',
+    //     changeOrigin: true,
+    //     ws: true,
+    //   }
+        proxy: 'http://localhost:8000'
     },
+
 
     // output built static files to Laravel's public dir.
     // note the "build" script in package.json needs to be modified as well.

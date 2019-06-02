@@ -7,6 +7,17 @@ use Illuminate\Http\Request;
 
 class BookController extends Controller
 {
+
+    /**
+     * 指定模型名称
+     *
+     * @return mixed
+     */
+    function model()
+    {
+        return 'App\Models\Book';
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +25,10 @@ class BookController extends Controller
      */
     public function index()
     {
-        //
+        //返回首页每日推荐十本书
+        // $books = $this->model->orderBy('created_at', 'desc')->paginate(10);
+        // return collection($books);
+        return response()->json('successfully fetch');
     }
 
     /**

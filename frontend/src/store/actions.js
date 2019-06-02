@@ -8,7 +8,7 @@ export default {
 	// },
     getTodayBooks: async function({ commit }) {
         // commit('setToken',token)
-        const res = await fetch('http://localhost:80/todayBooks');
+        const res = await fetch('api/todayBooks');
         commit('setTodayBooks', res.data);
     }
 }
