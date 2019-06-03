@@ -65,4 +65,32 @@ li {
 a {
   color: #42b983;
 }
+.ant-menu-horizontal {
+    border: 0;
+}
+#nav {
+    border:1px solid blueviolet;
+    padding: 30px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    min-width: 650px;
+    z-index: 11;
+    background: #fafafa;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+}
+// .nav {
+//     border: 1px solid black;
+//     position: fixed;
+//     top: 0;
+//     width: 100%;
+//     height: 80px;
+//     min-width: 650px;
+//     z-index: 11;
+//     background: #fafafa;
+//     -webkit-transform: translateZ(0);
+//     transform: translateZ(0);
+// }
 </style>

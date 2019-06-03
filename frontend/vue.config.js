@@ -1,13 +1,8 @@
 module.exports = {
     // proxy API requests to Valet during development
-    devServer: {
-    //   proxy: {
-    //     target: 'http://localhost:8000',
-    //     changeOrigin: true,
-    //     ws: true,
-    //   }
-        proxy: 'http://localhost:8000'
-    },
+    // devServer: {
+    //     proxy: 'http://coolapp.test/'
+    // },
 
 
     // output built static files to Laravel's public dir.
@@ -18,5 +13,15 @@ module.exports = {
     // make sure to do this only in production.
     indexPath: process.env.NODE_ENV === 'production'
       ? '../resources/views/index.blade.php'
-      : 'index.html'
+      : 'index.html',
+    css: {
+        loaderOptions: {
+            less: {
+                modifyVars: {
+                    'component-background' : '#fafafa'
+                },
+                javascriptEnabled: true
+            }
+        }
+    }
   }

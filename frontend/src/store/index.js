@@ -1,21 +1,19 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import mutations from './mutations'
-import actions from './actions'
+import {books} from './modules/books.js'
+import {bookLists} from './modules/bookLists'
+import {appreciations} from './modules/appreciations'
+import {users} from './modules/users'
+import {filters} from './modules/filters'
 
 Vue.use(Vuex)
 
-const state = {
-    todayBooks: []
-}
-
-const getters = {
-
-}
-
 export default new Vuex.Store({
-	state,
-    actions,
-    getters,
-	mutations
-})
+    modules: {
+        books,
+        bookLists,
+        appreciations,
+        users,
+        filters
+    }
+});

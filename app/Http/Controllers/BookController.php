@@ -28,7 +28,8 @@ class BookController extends Controller
         //返回首页每日推荐十本书
         // $books = $this->model->orderBy('created_at', 'desc')->paginate(10);
         // return collection($books);
-        return response()->json('successfully fetch');
+        $array = array('foo', 'bar');
+        return $array;
     }
 
     /**

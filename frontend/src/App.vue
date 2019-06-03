@@ -29,13 +29,22 @@ export default {
   color: #2c3e50;
 }
 #nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+    padding: 30px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 80px;
+    min-width: 650px;
+    z-index: 11;
+    background: #fafafa;
+    -webkit-transform: translateZ(0);
+    transform: translateZ(0);
+    a {
+        font-weight: bold;
+        color: #2c3e50;
+        &.router-link-exact-active {
+        color: #42b983;
+        }
     }
-  }
 }
 </style>
