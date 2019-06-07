@@ -1,5 +1,5 @@
 <template>
   <div class="footer">
-    <a-layout-footer style="display:fixed; bottom:0px;">this is the footer part</a-layout-footer>
+      <img src="../assets/image/footer.png" alt="" width="100%" >
   </div>
 </template>

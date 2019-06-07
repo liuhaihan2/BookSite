@@ -42,6 +42,18 @@ export default new Router({
         path: '/registe',
         name: 'registe',
         component: () => import('./views/Registe.vue')
+    },
+    // 书籍详情页
+    {
+        path: '/bookdetail',
+        name: 'bookdetail',
+        component: () => import('./views/BookDetail.vue')
+    },
+    //booklistdetail
+    {
+        path: '/booklistdetail',
+        name: 'booklistdetail',
+        component: () => import('./views/BookListDetail.vue')
     }
   ]
 })

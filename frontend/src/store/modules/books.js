@@ -1,3 +1,4 @@
+import api from '../../api/index'
 export const books = {
     /**
      * Defines the state being monitored for the module.
@@ -26,10 +27,14 @@ export const books = {
         //             commit('setCafesLoadStatus', 3);
         //         });
         // },
-        getTodayBooks: async function({ commit }) {
-            // commit('setToken',token)
-            const res = await fetch('http://coolapp.test/api/test');
-            commit('setTodayBooks', res.data);
+        getTodayBooks: function ({ commit }) {
+            return api('http://coolapp.test/api/book/todayBooks')
+                .then((res) => {
+                    return res.json()
+                })
+                .then(function (res) {
+                    commit('setTodayBooks', res)
+                });
         }
     },
     /**
@@ -39,8 +44,10 @@ export const books = {
         // setCafesLoadStatus(state, status) {
         //     state.cafesLoadStatus = status;
         // },
-        setTodayBooks: function(state,object) {
+        setTodayBooks: function (state, object) {
             state.todayBooks = object
+            // eslint-disable-next-line
+            console.log("state.todaybooks", state.todayBooks)
         }
     },
     /**
@@ -54,5 +61,6 @@ export const books = {
         // getCafes(state) {
         //     return state.cafes;
         // },
-    }
+        todayBooks: state => state.todayBooks
+    },
 };

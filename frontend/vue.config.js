@@ -18,7 +18,12 @@ module.exports = {
         loaderOptions: {
             less: {
                 modifyVars: {
-                    'component-background' : '#fafafa'
+                    'component-background' : '#fafafa',
+                    'menu-collapsed-width': '50px',
+                    'input-hover-border-color': '#B89477',
+                    'input-bg': '#fafafa',
+                    'primary-color': '#d1b283'
+
                 },
                 javascriptEnabled: true
             }
