@@ -4,14 +4,16 @@
             <a class="card-link" href="#">
                 <article class="blog-card">
                     <!-- <img class="post-image" :src="image" /> -->
-                    <img class="post-image" src="../assets/image/book1.png" />
+                    <router-link to="/bookdetail">
+                        <img class="post-image" src="../assets/image/book1.png" />
+                    </router-link>
                     <div class="article-details">
                         <!-- <h4 class="post-category">{{ category }}</h4>
                         <h3 class="post-title">{{ name }}</h3>
                         <p class="post-description">{{ desc }}</p>
                         <p class="post-author">By {{ author }}</p> -->
                         <h4 class="post-category">去去去</h4>
-                        <h3 class="post-title">去去去</h3>
+                        <router-link to="/bookdetail"><h3 class="post-title">去去去</h3></router-link>
                         <p class="post-description">去去去</p>
                         <p class="post-author">By 去去去</p>
                     </div>
@@ -79,7 +81,7 @@
     }
 
     #container {
-        width: 30rem;
+        width: 28rem;
         height: 13.625rem;
         margin: 15px;
     }
@@ -88,9 +90,14 @@
         display: flex;
         flex-direction: row;
         background: $white;
-        box-shadow: 0 0.1875rem 1.5rem $shadow;
+        /* box-shadow: 0 0.1875rem 1.5rem $shadow; */
         border-radius: 0.375rem;
         overflow: hidden;
+    }
+
+    .blog-card:hover {
+        box-shadow: 0 0.1875rem 1.5rem $shadow;
+        transition: all .5s ease;
     }
 
     .card-link {

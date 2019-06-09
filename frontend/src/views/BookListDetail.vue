@@ -1,7 +1,45 @@
 <template>
-  <div class="rank">
-    <div style="background-color: #f2eae6; padding: 80px;">
-      <img src="../assets/image/booklistdetail.png" alt width="95%">
+    <div class="list-detail" style="background-color: #f2eae6; padding-top: 50px">
+        <div class="list">
+            <BookListItem />
+            <BookListItem />
+        </div>
     </div>
-  </div>
 </template>
+<script>
+    import BookListItem from '../components/BookListItem.vue'
+    export default {
+        data() {
+            return {
+                formLayout: 'horizontal',
+                form: this.$form.createForm(this),
+            };
+        },
+        components: {
+            BookListItem
+        },
+        methods: {
+            handleSubmit(e) {
+                e.preventDefault();
+                this.form.validateFields((err, values) => {
+                    if (!err) {
+                        console.log('Received values of form: ', values);
+                    }
+                });
+            },
+            handleSelectChange(value) {
+                console.log(value);
+                this.form.setFieldsValue({
+                    note: `Hi, ${value === 'male' ? 'man' : 'lady'}!`,
+                });
+            },
+        },
+    };
+</script>
+<style lang="less" scoped>
+    .list {
+        width: 80%;
+        background-color: #fff;
+        margin: 80px auto 0px auto;
+    }
+</style>
