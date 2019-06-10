@@ -51,6 +51,7 @@
         },
         methods: {
             handleTableChange(pagination, filters, sorter) {
+                // eslint-disable-next-line
                 console.log(pagination);
                 const pager = {...this.pagination
                 };

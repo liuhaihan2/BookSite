@@ -1,5 +1,6 @@
 <template>
   <div class="login" style="background-color: rgb(235, 235, 235);height: 800px">
+        <!-- eslint-disable-next-line -->
     <object type="application/x-shockwave-flash" style="outline:none;width: 90%; height: 750px; margin-top:-50px" data="http://cdn.abowman.com/widgets/fish/fish.swf?up_fishColor4=C4B794&up_fishColor9=851B0D&up_fishColor6=851B0D&up_fishColor5=C4B794&up_fishColor10=C4B794&up_foodColor=C4B794&up_fishColor3=851B0D&up_fishColor1=851B0D&up_fishColor8=851B0D&up_fishColor2=C4B794&up_numFish=8&up_fishName=Fish&up_fishColor7=C4B794&up_backgroundImage= &up_backgroundColor=EBEBEB&" width="300" height="200"><param name="movie" value="http://cdn.abowman.com/widgets/fish/fish.swf?up_fishColor4=C4B794&up_fishColor9=851B0D&up_fishColor6=851B0D&up_fishColor5=C4B794&up_fishColor10=C4B794&up_foodColor=C4B794&up_fishColor3=851B0D&up_fishColor1=851B0D&up_fishColor8=851B0D&up_fishColor2=C4B794&up_numFish=8&up_fishName=Fish&up_fishColor7=C4B794&up_backgroundImage= &up_backgroundColor=EBEBEB&"></param><param name="AllowScriptAccess" value="always"></param><param name="wmode" value="opaque"></param><param name="scale" value="noscale"/><param name="salign" value="tl"/></object>
     <div style="margin-top: -600px;">
         <div class="login-container">
@@ -74,11 +75,13 @@
                 e.preventDefault();
                 this.form.validateFields((err, values) => {
                     if (!err) {
+                        // eslint-disable-next-line
                         console.log('Received values of form: ', values);
                     }
                 });
             },
             handleSelectChange(value) {
+                // eslint-disable-next-line
                 console.log(value);
                 this.form.setFieldsValue({
                     note: `Hi, ${value === 'male' ? 'man' : 'lady'}!`,

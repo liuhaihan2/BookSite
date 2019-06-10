@@ -17,10 +17,13 @@ Route::group(['middleware' => 'cors'], function () {
     Route::group(['prefix' => 'book'], function () {
         //获取首页推荐 书籍
         Route::get('/todayBooks', 'BookController@index');
+        // Route::get('/todayBooks', function() {
+        //     $array = array('foo', 'bar');
+        //     return $array;
+        // });
         Route::group(['middleware' => ['auth:api']], function () {
             // 需要登录以后才能访问的  关于书籍  api
         });
-        // Route::get('/todayBookLists', 'BooklistController@index');
     });
 
     //书单
@@ -43,6 +46,8 @@ Route::group(['middleware' => 'cors'], function () {
 
     //用户
     Route::group(['prefix' => 'user'], function () {
+        //登录
+        // Route::post('user/register', 'UserController@register');
         //登录注册改密码什么的都在这里
         Route::group(['middleware' => ['auth:api']], function () {
             // 需要登录以后才能访问的  关于用户  api

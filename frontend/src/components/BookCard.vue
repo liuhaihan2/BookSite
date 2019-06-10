@@ -3,19 +3,19 @@
         <div id="blog-card">
             <a class="card-link" href="#">
                 <article class="blog-card">
-                    <!-- <img class="post-image" :src="image" /> -->
                     <router-link to="/bookdetail">
-                        <img class="post-image" src="../assets/image/book1.png" />
+                        <img class="post-image" src='../assets/image/BOOK-1.png' v-if="index === 0"/>
+                        <img class="post-image" src='../assets/image/BOOK-2.png' v-if="index === 1"/>
+                        <img class="post-image" src='../assets/image/BOOK-3.png' v-if="index === 2"/>
+                        <img class="post-image" src='../assets/image/BOOK-4.png' v-if="index === 3"/>
+                        <img class="post-image" src='../assets/image/BOOK-5.png' v-if="index === 4"/>
+                        <img class="post-image" src='../assets/image/BOOK-6.png' v-if="index === 5"/>
                     </router-link>
                     <div class="article-details">
-                        <!-- <h4 class="post-category">{{ category }}</h4>
-                        <h3 class="post-title">{{ name }}</h3>
-                        <p class="post-description">{{ desc }}</p>
-                        <p class="post-author">By {{ author }}</p> -->
-                        <h4 class="post-category">去去去</h4>
-                        <router-link to="/bookdetail"><h3 class="post-title">去去去</h3></router-link>
-                        <p class="post-description">去去去</p>
-                        <p class="post-author">By 去去去</p>
+                        <span class="post-category" style="display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 1;overflow: hidden;">{{ data.summary }}</span>
+                        <h3 class="post-title">{{ data.book_name }}</h3>
+                        <p class="post-description" style="display: -webkit-box;-webkit-box-orient: vertical;-webkit-line-clamp: 2;overflow: hidden;">{{ data.introduction }}</p>
+                        <p class="post-author">By {{ data.author }}</p>
                     </div>
                 </article>
             </a>
@@ -28,15 +28,19 @@
     export default {
         name: "BookCard",
         data() {
-            return {};
+            return {
+                img: [
+                    '/img/BOOK-1.cd82760a.png',
+                    '/img/BOOK-2.fc94c94a.png',
+                    '/img/BOOK-3.658f2a51.png',
+                    '/img/BOOK-4.f07c9778.png',
+                    'http://book.img.ireader.com/idc_1/m_1,w_300,h_400/08c0f360/group61/M00/9C/7A/CmQUOVycjHiEHEavAAAAAAqB0h8765287492.jpg?v=zzHQJdFa&t=CmQUOVycjHg.'
+                ]
+            };
         },
         props: {
-            // category: String,
-            // name: String,
-            // desc: String,
-            // author: String,
-            // image: String
-            bookInfo: Object
+            data: Object,
+            index: Number
         }
     };
 </script>
@@ -56,7 +60,7 @@
     @mixin transition($args...) {
         transition: $args;
     }
-
+    
     * {
         box-sizing: border-box;
         &::before,
@@ -64,7 +68,7 @@
             box-sizing: border-box;
         }
     }
-
+    
     body {
         display: flex;
         font-family: 'Roboto', sans-serif;
@@ -79,13 +83,13 @@
         justify-content: center;
         text-rendering: optimizeLegibility;
     }
-
+    
     #container {
         width: 28rem;
         height: 13.625rem;
         margin: 15px;
     }
-
+    
     .blog-card {
         display: flex;
         flex-direction: row;
@@ -94,12 +98,12 @@
         border-radius: 0.375rem;
         overflow: hidden;
     }
-
+    
     .blog-card:hover {
         box-shadow: 0 0.1875rem 1.5rem $shadow;
         transition: all .5s ease;
     }
-
+    
     .card-link {
         position: relative;
         display: block;
@@ -114,31 +118,31 @@
             opacity: 0.9;
         }
     }
-
+    
     .post-image {
         @include transition(opacity 0.3s ease);
         display: block;
         width: 100%;
         object-fit: cover;
     }
-
+    
     .article-details {
         padding: 1.5rem;
         text-align: left;
     }
-
+    
     .post-category {
         display: inline-block;
         text-transform: uppercase;
         font-size: 0.75rem;
         font-weight: 700;
-        line-height: 1;
+        line-height: 2;
         letter-spacing: 0.0625rem;
         margin: 0 0 0.75rem 0;
         padding: 0 0 0.25rem 0;
         border-bottom: 0.125rem solid $border;
     }
-
+    
     .post-title {
         @include transition(color 0.3s ease);
         font-size: 1.125rem;
@@ -147,7 +151,7 @@
         font-weight: 700;
         margin: 0 0 0.5rem 0;
     }
-
+    
     .post-author {
         font-size: 0.875rem;
         line-height: 1;
@@ -155,7 +159,7 @@
         padding: 1.125rem 0 0 0;
         border-top: 0.0625rem solid $border;
     }
-
+    
     @media (max-width: 40rem) {
         #container {
             width: 18rem;
@@ -165,7 +169,7 @@
             flex-wrap: wrap;
         }
     }
-
+    
     @supports (display: grid) {
         body {
             display: grid;

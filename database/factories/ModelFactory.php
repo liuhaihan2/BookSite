@@ -73,6 +73,6 @@ $factory->define(\App\Models\Comment::class, function (Faker $faker) {
         'user_id' => $faker->numberBetween(1, 50),
         'body' => $faker->sentence,
         'commentable_id' => $faker->numberBetween(1, 50),
-        'commentable_type' => 'App\Http\Frontend\Models\Poem'
+        'commentable_type' => 'App\\Models\Book'
     ];
 });

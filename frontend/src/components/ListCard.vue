@@ -13,8 +13,8 @@
                 <div class="bg1">
                 </div>
                 <div>
-                    <h3>Slide text up</h3>
-                    <p> Eminuit autem inter humilia supergressa iam impotentia fines mediocrium delictorum nefanda Clematii cuiusdam</p>
+                    <h3>{{ data.list_title }}</h3>
+                    <p>{{ data.description }}</p>
                     <a-button>
                         <router-link to="/booklistdetail">进入</router-link>
                     </a-button>
@@ -23,6 +23,17 @@
         </div>
     </div>
 </template>
+<script>
+    export default {
+        name: "ListCard",
+        data() {
+            return {};
+        },
+        props: {
+            data: Object
+        }
+    }
+</script>
 <style lang="less" scoped>
     /* .card {
         a:hover img {
@@ -32,47 +43,47 @@
             transition: all 0.5s ease-out;
         }
     } */
-
+    
     * {
         -webkit-box-sizing: border-box;
         box-sizing: border-box;
     }
-
+    
     html {
         height: 100%;
         width: 100%;
     }
-
+    
     a {
         text-decoration: inherit
     }
-
+    
     h1 {
         text-align: center;
         color: #666;
         text-shadow: 1px 1px 0px #FFF;
         margin: 50px 0px 0px 0px
     }
-
+    
     p {
         color: #fff;
     }
-
+    
     .clearfix {
         clear: both;
     }
-
+    
     .content {
         width: 100%;
         height: auto;
         overflow: hidden;
     }
-
+    
     .dashboard {
         max-width: 1080px;
         margin: 90px auto;
     }
-
+    
     .cube {
         position: relative;
         width: 250px;
@@ -84,7 +95,7 @@
         border-radius: 50%;
         display: inline-block;
     }
-
+    
     .cube div {
         position: absolute;
         top: 0;
@@ -98,7 +109,7 @@
         transition: all .3s ease;
         border-radius: 50%;
     }
-
+    
     .bg1 {
         background-image: url("http://www.outil-hydraulique.com/img/1.jpg");
         background-size: cover;
@@ -106,7 +117,7 @@
         border-radius: 50%;
     }
     /* ---------- ANIMATION -------------------------*/
-
+    
     .slideTextUp div {
         position: absolute;
         top: 0;
@@ -122,18 +133,18 @@
         padding: 15px;
         border-radius: 50%;
     }
-
+    
     .slideTextUp div:nth-child(3) {
         top: 100%;
         padding: 40px;
     }
-
+    
     .slideTextUp:hover div {
         -webkit-transform: translateY(-100%);
         -ms-transform: translateY(-100%);
         transform: translateY(-100%);
     }
-
+    
     .slideTextUp:hover a img {
         filter: alpha(Opacity=80);
         -moz-opacity: 0.5;

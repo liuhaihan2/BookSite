@@ -17,6 +17,7 @@
 <script>
     export default {
         mounted() {
+            // eslint-disable-next-line
             console.log('Component mounted.')
         }
     }

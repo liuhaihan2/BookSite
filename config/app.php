@@ -166,6 +166,19 @@ return [
          * Package Service Providers...
          */
         Barryvdh\Cors\ServiceProvider::class,
+        Laravel\Passport\PassportServiceProvider::class,
+        // Barryvdh\Cors\ServiceProvider::class,
+        // Naux\Mail\SendCloudServiceProvider::class,
+        // Laravel\Scout\ScoutServiceProvider::class,
+        // Overtrue\LaravelFilesystem\Qiniu\QiniuStorageServiceProvider::class,
+        // Overtrue\LaravelSocialite\ServiceProvider::class,
+        // Zizaco\Entrust\EntrustServiceProvider::class,
+
+        //Develop Plugin
+        // Barryvdh\Debugbar\ServiceProvider::class,
+        // Mpociot\LaravelTestFactoryHelper\TestFactoryHelperServiceProvider::class,
+        // Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,
+
 
         /*
          * Application Service Providers...

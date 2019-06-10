@@ -49,11 +49,13 @@
                 e.preventDefault();
                 this.form.validateFields((err, values) => {
                     if (!err) {
+                        // eslint-disable-next-line
                         console.log('Received values of form: ', values);
                     }
                 });
             },
             handleSelectChange(value) {
+                // eslint-disable-next-line
                 console.log(value);
                 this.form.setFieldsValue({
                     note: `Hi, ${value === 'male' ? 'man' : 'lady'}!`,

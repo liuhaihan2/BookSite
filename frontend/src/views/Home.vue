@@ -10,22 +10,14 @@
     <div class="today-books">
       <img src="../assets/image/home-img2.png" alt="carousel">
       <div class="book-container">
-        <BookCard />
-        <BookCard />
-        <BookCard />
-        <BookCard />
-        <BookCard />
-        <BookCard />
+        <BookCard  v-for="(item, index) in books" :key="index" :data="item" :index="index"/>
       </div>
     </div>
     <!-- 每日推荐 书单 -->
     <div class="today-booklists">
       <div class="booklist-container">
         <div class="booklist-wrapper">
-          <ListCard />
-          <ListCard />
-          <ListCard />
-          <ListCard />
+            <ListCard v-for="(item, index) in lists" :key="index" :data="item" />
         </div>
       </div>
     </div>
@@ -41,13 +33,9 @@
               <img src="../assets/image/book1.png" width="50px" height="80px" alt="">
           </div>
           <div class="appre-introducation">
-              <h2 class="title" color="#d09d4e">鉴赏标题</h2>
-              <span color="#6b5e49">关于《多对多》的鉴赏</span>
-              <span color="#6b5e49">作者昵称</span>
-              <p class="appre-content">
-                水电费水电费第三方决胜巅峰绝对是顶顶顶顶顶顶顶顶水电费第三方防守打法辅导费水电费第三方d
-                范德萨发的发水电费可是对方上岛咖啡萨芬的最后是三个点
-              </p>
+              <h2 class="title" color="#d09d4e">{{ appreciation.appre_title }}</h2>
+              <span color="#6b5e49">{{ appreciation.author }}</span>
+              <p class="appre-content">{{ appreciation.summary }}</p>
               <a-button>更多</a-button>
           </div>
       </div>
@@ -71,14 +59,23 @@
         data: () => {
             return {
                 books: [{
-                    name: '',
-                    title: '',
+                    book_name: '',
                     author: '',
-                    image: '', //封皮
+                    img_url: '',
                     summary: '', //摘要  一句话
                     introduction: '', //简介  书的基本内容
 
-                }]
+                }],
+                lists: [{
+                    list_name: '',
+                    description: '',
+                    theme_img: ''
+                }],
+                appreciation: {
+                    appre_title: '',
+                    author: '',
+                    summary: ''
+                }
             };
         },
         computed: {
@@ -90,14 +87,44 @@
             ListCard
         },
         mounted() {
-            this.getTodayBooks().then(() => {
-                this.books = this.todayBooks.slice(0);
-                // eslint-disable-next-line
-                console.log("books", this.books);
-            });
+            // this.getTodayBooks().then(() => {
+            //     this.books = this.todayBooks.slice(0)
+            //         // eslint-disable-next-line
+            //     console.log("books", this.books)
+            // })
+            this.mockTodayBooks() //fetch mock books 6
+            this.mockTodayLists() //fetch mock lists 4
+            this.mockTodayAppre() //fetch mock appreciation 1
         },
         methods: {
-            ...mapActions(["getTodayBooks"])
+            ...mapActions(["getTodayBooks"]),
+            mockTodayBooks: function() {
+                fetch('/mockBooks')
+                    .then((res) => {
+                        return res.json()
+                    })
+                    .then((res) => {
+                        this.books = res.data
+                    })
+            },
+            mockTodayLists: function() {
+                fetch('/mockLists')
+                    .then((res) => {
+                        return res.json()
+                    })
+                    .then((res) => {
+                        this.lists = res.data
+                    })
+            },
+            mockTodayAppre: function() {
+                fetch('/mockAppre')
+                    .then((res) => {
+                        return res.json()
+                    })
+                    .then((res) => {
+                        this.appreciation = res
+                    })
+            }
         }
     };
 </script>
@@ -106,11 +133,11 @@
         width: 100%;
         height: 100%;
     }
-
+    
     .carousel {
         margin-top: 80px;
     }
-
+    
     .today-books {
         .book-container {
             background: url("../assets/image/todayBooks-bg.png") repeat-y;
@@ -122,7 +149,7 @@
             background-color: #fefff9;
         }
     }
-
+    
     .today-booklists {
         .booklist-wrapper {
             display: flex;
@@ -130,7 +157,7 @@
             margin: 10px auto;
         }
     }
-
+    
     .best-appreciation {
         position: relative;
         .appre-container {
@@ -147,7 +174,7 @@
             display: table;
         }
     }
-
+    
     .best-appreciation {
         .appre-container {
             display: flex;

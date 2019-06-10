@@ -2,27 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Book;
 use Illuminate\Http\Request;
+use App\Repositories\Eloquent\BookRepository as Book;
 
 class BookController extends Controller
 {
+    // protected $book;
 
-    /**
-     * 指定模型名称
-     *
-     * @return mixed
-     */
-    function model()
-    {
-        return 'App\Models\Book';
-    }
+    // public function __construct(Book $book)
+    // {
+    //     $this->book = $book;
+    // }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         //返回首页每日推荐十本书
@@ -30,6 +21,7 @@ class BookController extends Controller
         // return collection($books);
         $array = array('foo', 'bar');
         return $array;
+        // return $this->book->index();
     }
 
     /**

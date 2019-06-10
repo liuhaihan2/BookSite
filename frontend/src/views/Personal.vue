@@ -87,6 +87,7 @@
         },
         methods: {
             callback(key) {
+                // eslint-disable-next-line
                 console.log(key)
             },
         },
@@ -138,6 +139,7 @@
                 justify-content: flex-end;
                 .icon-right-wrapper,
                 .icon-left-wrapper {
+                    text-align: center;
                     margin-top: 215px;
                     margin-right: 100px;
                     height: 86px;

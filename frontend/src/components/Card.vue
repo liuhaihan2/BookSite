@@ -118,7 +118,7 @@
                 transform: translateY(0);
             }
             .card-info h1 {
-                color: #9d3b3c
+                color: #fff
             }
             .card-info p {
                 opacity: 1;
@@ -204,6 +204,7 @@
 
     .card-info h1 {
         font-family: "Playfair Display";
+        color: #f2eae6;
         font-size: 36px;
         font-weight: 700;
         text-shadow: rgba(#9d3b3c, 0.5) 0 10px 10px;

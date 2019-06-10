@@ -51,6 +51,7 @@
         },
         methods: {
             handleTableChange(pagination, filters, sorter) {
+                // eslint-disable-next-line
                 console.log(pagination);
                 const pager = {...this.pagination
                 };
@@ -65,6 +66,7 @@
                 });
             },
             fetch(params = {}) {
+                // eslint-disable-next-line
                 console.log('params:', params);
                 this.loading = true
                 reqwest({
